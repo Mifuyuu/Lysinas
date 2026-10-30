@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "onlyOnHypixel": true,
+  "showGoodEnchantments": true,
+  "goodEnchantmentColor": "#FFAA00",
+  "shaderAnimationMode": "ANIMATED",
+  "activeProfile": "",
+  "itemProfiles": [],
+  "maxEnchantments": {
+    "animation": "FULL_TEXT_CYCLE",
+    "animationPeriodMs": 1800,
+    "animationSpeed": 1.0,
+    "sineWaveOffset": 0.0,
+    "interpolation": "HSV",
+    "stops": [
+      { "position": 0.0, "color": "#FF0000" },
+      { "position": 0.1667, "color": "#FFFF00" },
+      { "position": 0.3333, "color": "#00FF00" },
+      { "position": 0.5, "color": "#00FFFF" },
+      { "position": 0.6667, "color": "#0000FF" },
+      { "position": 0.8333, "color": "#FF00FF" },
+      { "position": 1.0, "color": "#FF0000" }
+    ]
+  }
+}

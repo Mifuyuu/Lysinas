@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "lysinas",
+  "version": "${version}",
+  "name": "Lysinas",
+  "description": "Configurable gradients and animated colours for max-level Hypixel SkyBlock enchantments.",
+  "authors": [
+    "Lysinas contributors"
+  ],
+  "contact": {
+    "sources": "https://github.com/AzureAaron/aaron-mod"
+  },
+  "license": "All Rights Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.lysinas.Lysinas"
+    ],
+    "modmenu": [
+      "net.lysinas.LysinasModMenu"
+    ]
+  },
+  "mixins": [
+    "lysinas.mixins.json"
+  ],
+  "accessWidener": "lysinas.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "fabric-api": ">=0.157.0+26.2",
+    "minecraft": "~26.2",
+    "java": ">=25"
+  }
+}

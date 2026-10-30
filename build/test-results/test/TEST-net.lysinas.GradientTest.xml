@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.lysinas.GradientTest" tests="34" skipped="0" failures="0" errors="0" timestamp="2026-10-29T16:58:47.170Z" hostname="DESKTOP-M3FP7K8" time="0.627">
+  <properties/>
+  <testcase name="nonCyclingOrAlreadySeamlessGradientsAreNotMirrored()" classname="net.lysinas.GradientTest" time="0.03"/>
+  <testcase name="appliesSunsetPresetWithExpectedStopsAndModes()" classname="net.lysinas.GradientTest" time="0.002"/>
+  <testcase name="everyPresetHasValidStopsAndAShortLabel()" classname="net.lysinas.GradientTest" time="0.041"/>
+  <testcase name="rejectsAlphaColours()" classname="net.lysinas.GradientTest" time="0.003"/>
+  <testcase name="migratesTheOldBuiltInPresetToClosedHsvRainbow()" classname="net.lysinas.GradientTest" time="0.003"/>
+  <testcase name="activeProfileNameResolvesCaseInsensitivelyAndInvalidNameFallsBackToAuto()" classname="net.lysinas.GradientTest" time="0.002"/>
+  <testcase name="parsesRgbColours()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="animationSpeedMultiplierChangesThePhaseRate()" classname="net.lysinas.GradientTest" time="0.002"/>
+  <testcase name="gradientShareCodeRejectsMalformedInput()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="sineWaveOffsetAddsATravelingSpatialDisplacement()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="defaultHsvRainbowIsClosedAndUsesBrightHueTransitions()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="itemProfileCanTargetRegistryIdOrHypixelIdAndRequiredEnchantments()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="cyclingGradientWithDifferentEndsLoopsWithoutASeam()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="gradientShareCodeRoundTripsStopsAndModes()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="compactCodeRoundTripsScreenChromaSizeAndSmoothHsv()" classname="net.lysinas.GradientTest" time="0.002"/>
+  <testcase name="progressMarkerCarriesTheSelectedProfilePaletteSlot()" classname="net.lysinas.GradientTest" time="0.452"/>
+  <testcase name="compactGradientCodeDetectsAccidentalEdits()" classname="net.lysinas.GradientTest" time="0.003"/>
+  <testcase name="smoothHsvSoftensHueRampLikeAaronsMod()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="hslGradientKeepsExactEndpointColors()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="paletteLutSamplingDoesNotApplySineOffsetTwice()" classname="net.lysinas.GradientTest" time="0.003"/>
+  <testcase name="mapsLocalGlyphXWithoutAddingTheGlyphOriginTwice()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="normalizesAnimationSpeedAndWaveToSupportedRanges()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="fullCodeRejectsDecompressionBombs()" classname="net.lysinas.GradientTest" time="0.007"/>
+  <testcase name="keepsUserDefinedGradientStops()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="staticGradientReachesBothStops()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="fullCodeRoundTripsGoodColourAndProfiles()" classname="net.lysinas.GradientTest" time="0.021"/>
+  <testcase name="detectsChangesToAnimationSpeedAndWaveInGradientCache()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="aaronChromaPreviewMatchesAaronsSmoothHsvAtDefaultSaturation()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="staticShaderModeFreezesAnimationAndWaveWithoutChangingPalette()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="staticShaderModeKeepsAaronChromaButFreezesIt()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="compactCodeRoundTripsAaronSaturation()" classname="net.lysinas.GradientTest" time="0.001"/>
+  <testcase name="oldEec1JsonCodesRemainImportable()" classname="net.lysinas.GradientTest" time="0.003"/>
+  <testcase name="hsvInterpolatesThroughBrightOrangeBetweenRedAndYellow()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <testcase name="clampsGlyphInkOverhangToItsLayoutAdvance()" classname="net.lysinas.GradientTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
