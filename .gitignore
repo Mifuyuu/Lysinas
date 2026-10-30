@@ -41,3 +41,8 @@ replay_pid*
 *.zip
 *.tar.gz
 *.rar
+
+# Local-only
+.research/
+tools/
+NOTICE.md
