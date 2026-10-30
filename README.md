@@ -1,44 +1,44 @@
 # Lysinas
 
-`Lysinas` เป็น Fabric client-side mod สำหรับเปลี่ยนสี enchantment ระดับ max ของ Hypixel SkyBlock ใน tooltip โดยแยกการทำงานออกจาก Aaron's Mod และเพิ่ม gradient ที่กำหนดเองได้หลายจุด พร้อม animation แบบเดียวกับแนวคิดใน [Birdflop Animated TAB](https://www.birdflop.com/resources/animtab/)
+`Lysinas` is a client-side Fabric mod that recolours max-level Hypixel SkyBlock enchantments in tooltips. It works independently of Aaron's Mod and adds customisable multi-stop gradients with animation, following the same idea as [Birdflop Animated TAB](https://www.birdflop.com/resources/animtab/).
 
-## ความสามารถ
+## Features
 
-- เปลี่ยนสี enchantment ระดับ max เป็น gradient หลาย color stops
-- กำหนดสีและตำแหน่งของแต่ละ stop ได้เอง 2–8 จุด
-- shader-based glyph gradient ที่ interpolate สีภายในตัวอักษร ไม่ได้เปลี่ยนสีแค่ต่อ glyph
-- clickgui ในเกมสำหรับแก้ color stops, interpolation, animation และ toggle หลัก
-- โปรไฟล์ Gradient แยกตาม item registry/Hypixel IDs และ enchantment IDs พร้อมจัดลำดับความสำคัญ
-- สลับ shader preview/runtime ระหว่าง `STATIC` และ `ANIMATED` ได้ทันทีจาก ClickGUI โดยไม่ restart
-- live gradient preview อัปเดตระหว่างพิมพ์ตำแหน่ง/สีและค่าความเร็ว/คลื่น
-- preset gradient สำเร็จรูป Rainbow, Sunset และ Ocean
-- แชร์/นำเข้า Gradient ด้วยรหัส `EEC2:` แบบสั้นพร้อม checksum และยัง import `EEC1:` รุ่นก่อนหน้าได้
-- Slash commands client-side สำหรับดูรายการและสลับ/คืนโหมดโปรไฟล์โดยไม่เปิด ClickGUI
-- benchmark ในเกมเปรียบเทียบ shader glyph path กับ vanilla text path และส่งออก frame-time เป็น CSV
-- interpolation แบบ `RGB`, `HSL`, `HSV` หรือ `SMOOTH_HSV` (HSV ที่ทำ cubic smoothing แบบ Aaron's Mod)
-- animation คำนวณใน shader ทุกเฟรม จึงลื่นแม้ tooltip ไม่ถูกสร้างใหม่
-- Screen chroma (`chromaSize` 1–200, 0 = ปิด): gradient แนวทแยงตามตำแหน่งบนจอแบบ Aaron's Mod ต่อเนื่องข้ามบรรทัด (เหมาะกับ `FULL_TEXT_CYCLE`)
-- โหมด `AARON_CHROMA` (ปุ่ม preset **Aaron**): สูตรเดียวกับ chroma text ของ Aaron's Mod ทุกจุด (size 100, saturation 0.75, speed 4 = 4.5 วินาที/รอบ) ปรับ size และ saturation ได้
-- แชร์ทุกอย่างด้วยรหัส `EEC3:` (สี good enchant + gradient หลัก + item profiles ทั้งหมด)
-- animation แบบ `STATIC`, `LEFT_TO_RIGHT`, `RIGHT_TO_LEFT`, `BOUNCE` และ `FULL_TEXT_CYCLE`
-- ปรับ animation speed `0.1×–5.0×` และ sine-wave offset `0–0.5` ใน ClickGUI
-- เปลี่ยนสี enchantment ระดับ good เป็นสีเดี่ยวได้
-- อ่าน threshold ข้อมูล enchantment จากไฟล์ที่ bundle มากับ mod จึงไม่เรียก API ของ Aaron's Mod ตอน runtime
-- จำกัดการทำงานไว้ที่ Hypixel ได้ด้วย `onlyOnHypixel`
+- Recolour max-level enchantments with a multi-stop gradient
+- Set the colour and position of each stop yourself, 2–8 stops
+- Shader-based glyph gradient that interpolates colour inside each character, not just per glyph
+- In-game ClickGUI for editing colour stops, interpolation, animation and the main toggles
+- Gradient profiles per item registry/Hypixel ID and enchantment ID, with priority ordering
+- Switch the shader preview/runtime between `STATIC` and `ANIMATED` instantly from the ClickGUI, no restart needed
+- Live gradient preview that updates while you type positions/colours and speed/wave values
+- Ready-made gradient presets: Rainbow, Sunset and Ocean
+- Share/import gradients with short `EEC2:` codes with a checksum; older `EEC1:` codes still import
+- Client-side slash commands to list, switch and reset profile mode without opening the ClickGUI
+- In-game benchmark comparing the shader glyph path with the vanilla text path, exporting frame times as CSV
+- `RGB`, `HSL`, `HSV` or `SMOOTH_HSV` interpolation (HSV with cubic smoothing like Aaron's Mod)
+- Animation is computed in the shader every frame, so it stays smooth even when the tooltip is not rebuilt
+- Screen chroma (`chromaSize` 1–200, 0 = off): a diagonal gradient based on screen position like Aaron's Mod, continuous across lines (works best with `FULL_TEXT_CYCLE`)
+- `AARON_CHROMA` mode (the **Aaron** preset): the exact same formula as Aaron's Mod chroma text (size 100, saturation 0.75, speed 4 = 4.5 seconds per cycle), with adjustable size and saturation
+- Share everything with an `EEC3:` code (good enchant colour + main gradient + all item profiles)
+- `STATIC`, `LEFT_TO_RIGHT`, `RIGHT_TO_LEFT`, `BOUNCE` and `FULL_TEXT_CYCLE` animations
+- Adjust animation speed `0.1×–5.0×` and sine-wave offset `0–0.5` in the ClickGUI
+- Recolour good-level enchantments with a single colour
+- Enchantment thresholds are read from a file bundled with the mod, so Aaron's Mod's API is never called at runtime
+- Restrict the mod to Hypixel with `onlyOnHypixel`
 
-## ติดตั้งและ build
+## Installing and building
 
-โปรเจกต์นี้ target Minecraft `26.2`, Fabric Loader `0.19.3`, Fabric API `0.157.0+26.2` และ Java 25 ตาม source รุ่นล่าสุดที่ตรวจสอบจากต้นทาง
+This project targets Minecraft `26.2`, Fabric Loader `0.19.3`, Fabric API `0.157.0+26.2` and Java 25, matching the latest upstream sources checked.
 
 ```bash
 ./gradlew build
 ```
 
-ไฟล์ mod จะอยู่ที่ `build/libs/lysinas-1.4.0+26.2.jar` จากนั้นนำไปใส่ในโฟลเดอร์ `mods` พร้อม Fabric API
+The mod file will be at `build/libs/lysinas-1.5.0+26.2.jar`. Put it in your `mods` folder together with Fabric API.
 
-## ตั้งค่า
+## Configuration
 
-เปิดเกมครั้งแรกเพื่อให้ mod สร้างไฟล์ `config/lysinas.json` แล้วแก้ไฟล์ดังนี้:
+Launch the game once so the mod creates `config/lysinas.json`, then edit it like this:
 
 ```json
 {
@@ -68,36 +68,36 @@
 }
 ```
 
-ผู้ใช้แก้ `stops` ใน `config/lysinas.json` ได้โดยตรง: เพิ่ม/ลบ stop ภายในช่วง 2–8 จุด, ตั้ง `position` จาก `0.0` ถึง `1.0`, และใส่สีเป็น `#RRGGBB` หรือ `0xRRGGBB`. `HSV` เดิน hue ตามวงสีแบบ HSB ของ Aaron's Mod; `HSL` และ `RGB` ยังเลือกใช้ได้
+You can edit `stops` in `config/lysinas.json` directly: add/remove stops within 2–8, set `position` from `0.0` to `1.0`, and write colours as `#RRGGBB` or `0xRRGGBB`. `HSV` walks the hue wheel like Aaron's Mod's HSB; `HSL` and `RGB` are still available.
 
-เปิดหน้าตั้งค่าในเกมได้ด้วยปุ่ม `O` (เปลี่ยนปุ่มได้ที่ Options → Controls → Lysinas). หน้าจอมี live preview ที่เปลี่ยนตาม stop/period/speed/wave ระหว่างพิมพ์, เพิ่ม/ลบ/เลือก stop, เลือก interpolation/animation และตั้งสี good enchantments. ปุ่ม `Shader: STATIC/ANIMATED` สลับการเคลื่อนไหวของ gradient ที่กำลังแสดงทันที โดยไม่เปลี่ยน pipeline และไม่ต้อง restart; กด Save เพื่อบันทึกโหมดหรือ Cancel เพื่อคืนโหมดเดิม. `animationSpeed` ใช้ช่วง `0.1` ถึง `5.0` โดย `1.0` คือความเร็วปกติ. `sineWaveOffset` ใช้ช่วง `0` ถึง `0.5` เป็น amplitude ในสัดส่วนของ gradient; `0` ปิดคลื่น, ค่าสูงขึ้นเพิ่มการแกว่งของสี. คลื่นหนึ่งรอบพาดตามความยาวข้อความและเคลื่อนด้วย animation speed. ปุ่ม Save เขียนค่าใน `config/lysinas.json`; Cancel ทิ้งการแก้ไขที่ยังไม่บันทึก. คลิก preset เพื่อแทน gradient ใน draft แล้วกด Save เพื่อเก็บ
+Open the in-game settings with the `O` key (rebind it under Options → Controls → Lysinas). The screen has a live preview that follows stop/period/speed/wave changes as you type, lets you add/remove/select stops, choose interpolation/animation and set the good enchantment colour. The `Shader: STATIC/ANIMATED` button toggles the motion of the displayed gradient instantly without changing the pipeline or restarting; press Save to keep the mode or Cancel to revert it. `animationSpeed` ranges from `0.1` to `5.0`, where `1.0` is normal speed. `sineWaveOffset` ranges from `0` to `0.5` and is the amplitude as a fraction of the gradient; `0` disables the wave and higher values make the colours swing more. One wave cycle spans the text length and moves with the animation speed. Save writes the values to `config/lysinas.json`; Cancel discards unsaved changes. Click a preset to replace the gradient in the draft, then press Save to keep it.
 
-ปุ่ม **Item Profiles** เปิดตัวจัดการโปรไฟล์ได้สูงสุด 32 รายการ. ใส่ `Item IDs` เป็น item registry ID เช่น `minecraft:diamond_sword` หรือ Hypixel SkyBlock custom ID จาก `CUSTOM_DATA.id`/`CUSTOM_DATA.ExtraAttributes.id` เช่น `ASPECT_OF_THE_DRAGON`; ใส่ `Enchantment IDs` จาก key ใน `CUSTOM_DATA.enchantments` เช่น `sharpness`. ภายในกลุ่ม ID เดียวกันจับคู่แบบ OR; ถ้ากรอกทั้ง item IDs และ enchantment IDs ต้องตรงทั้งสองกลุ่ม (AND) จึงเหมาะกับการกำหนดสีให้ enchantment เฉพาะบน item เฉพาะ. รายการบนสุดที่ match จะชนะ และปุ่ม Up/Down ใช้จัด priority. แต่ละโปรไฟล์แก้ stops ด้วยรูปแบบ `0:#123456, 1:#ABCDEF`, ปรับ interpolation/animation/period/speed/wave, ใช้ preset หรือคัดลอก gradient หลักได้. กด **Apply to editor** แล้วกด **Save** ในหน้าหลักเพื่อบันทึกทั้งหมด; Cancel จะทิ้ง draft ของหน้าโปรไฟล์
+The **Item Profiles** button opens a manager for up to 32 profiles. Enter `Item IDs` as item registry IDs such as `minecraft:diamond_sword` or Hypixel SkyBlock custom IDs from `CUSTOM_DATA.id`/`CUSTOM_DATA.ExtraAttributes.id` such as `ASPECT_OF_THE_DRAGON`; enter `Enchantment IDs` from the keys in `CUSTOM_DATA.enchantments` such as `sharpness`. IDs within a group match with OR; if both item IDs and enchantment IDs are filled in, both groups must match (AND), which is useful for colouring a specific enchantment on a specific item. The topmost matching profile wins, and the Up/Down buttons set priority. Each profile edits stops in the form `0:#123456, 1:#ABCDEF`, adjusts interpolation/animation/period/speed/wave, and can use a preset or copy the main gradient. Press **Apply to editor**, then **Save** on the main screen to save everything; Cancel discards the profile screen's draft.
 
-เปิด ClickGUI ได้ 3 ทาง: กดปุ่ม `O`, พิมพ์ `/lysinas` หรือกดปุ่ม Configure ใน Mod Menu (ถ้าติดตั้งไว้)
+There are 3 ways to open the ClickGUI: press `O`, type `/lysinas`, or press Configure in Mod Menu (if installed).
 
-คำสั่ง client-side ใช้ได้จาก chat โดยไม่ต้องเปิด ClickGUI: `/lysinas profile list` แสดงโปรไฟล์, `/lysinas profile use <ชื่อ>` บังคับใช้โปรไฟล์นั้นกับ tooltip enchantment ทั้งหมด, `/lysinas profile current` ดูโหมดปัจจุบัน และ `/lysinas profile auto` กลับไปเลือกตาม item/enchantment selectors. ชื่อโปรไฟล์ที่มีเว้นวรรคใส่ได้ทั้งชื่อหลัง `use` เช่น `/lysinas profile use My Ocean`. โหมดที่เลือกบันทึกลง config และมีผลทันที; โหมด AUTO คือค่าปกติ
+Client-side commands work from chat without opening the ClickGUI: `/lysinas profile list` lists profiles, `/lysinas profile use <name>` forces that profile on all enchantment tooltips, `/lysinas profile current` shows the current mode, and `/lysinas profile auto` goes back to choosing by item/enchantment selectors. Profile names with spaces can be typed in full after `use`, e.g. `/lysinas profile use My Ocean`. The chosen mode is saved to the config and takes effect immediately; AUTO is the default.
 
-ปุ่ม **Share / Import Code** ส่งออก gradient เป็น `EEC2:` รหัสสั้นแบบ binary + Base64URL (โดยทั่วไปประมาณ 30–75 ตัวอักษรตามจำนวน stops) พร้อม CRC-16 ช่วยตรวจจับการพิมพ์ผิด; ตำแหน่ง stop ใช้ความละเอียด 16-bit และ RGB เก็บครบ 24-bit. กด Export แล้ว Copy เพื่อแชร์ หรือวางรหัสแล้วกด Import. ยังนำเข้ารหัส `EEC1:` แบบ JSON จากเวอร์ชันก่อนหน้าได้. Code ประกอบด้วย stops, interpolation, animation, period, speed และ sine-wave offset เท่านั้น ไม่รวม server toggles, profile selectors หรือสี good enchantment. การ import เปลี่ยนค่าในหน้าตั้งค่าชั่วคราวจนกว่าจะกด Save
+The **Share / Import Code** button exports the gradient as a short `EEC2:` code in binary + Base64URL (typically about 30–75 characters depending on the number of stops) with a CRC-16 to catch typos; stop positions use 16-bit precision and RGB is stored in full 24-bit. Press Export then Copy to share, or paste a code and press Import. JSON-based `EEC1:` codes from earlier versions still import. A code contains only stops, interpolation, animation, period, speed and sine-wave offset, not server toggles, profile selectors or the good enchantment colour. Importing changes the settings screen temporarily until you press Save.
 
-ปุ่ม **Benchmark** ใน ClickGUI รัน workload ข้อความ tooltip จำลองผ่าน GUI glyph renderer จริง: วัด shader-marked text เทียบกับ vanilla text, warm-up ก่อนเก็บตัวอย่าง และเขียนผลที่ `config/lysinas-benchmark.csv`. เลือก workload ได้ 16/32/64/128 tooltip groups ต่อเฟรม; หนึ่งกลุ่มมี 3 บรรทัด. จาก root โปรเจกต์สรุปผลด้วย:
+The **Benchmark** button in the ClickGUI runs a simulated tooltip text workload through the real GUI glyph renderer: it measures shader-marked text against vanilla text, warms up before sampling, and writes results to `config/lysinas-benchmark.csv`. Workloads of 16/32/64/128 tooltip groups per frame are available; each group has 3 lines. Summarise the results from the project root with:
 
 ```bash
 python3 tools/summarize_tooltip_benchmark.py /path/to/config/lysinas-benchmark.csv
 ```
 
-รายงานมี mean, median, P95, P99, FPS เฉลี่ย และ overhead เทียบ vanilla. ค่าเป็น frame-time ของ Minecraft รวมผลจาก CPU scheduling และการ sync กับ GPU ที่เกิดขึ้น ไม่ใช่ GPU timer โดยตรง; ให้ทดสอบในสภาพแวดล้อมเดียวกันและใช้ VSync/FPS cap แบบเดิมเพื่อเปรียบเทียบ
+The report includes mean, median, P95, P99, average FPS and overhead relative to vanilla. These are Minecraft frame times including CPU scheduling and any GPU sync that occurs, not direct GPU timers; test in the same environment with the same VSync/FPS cap to compare.
 
-ค่าเริ่มต้นเป็น rainbow วงปิด โดย stop แรกและสุดท้ายเป็นสีแดงเหมือนกัน เพื่อไม่ให้ `FULL_TEXT_CYCLE` กระโดดจากสีปลายกลับไปสีต้น หากปรับสีเองและใช้ `FULL_TEXT_CYCLE` ให้ตั้งสี stop แรก/สุดท้ายให้เหมือนกันเพื่อให้ loop ต่อเนื่อง; หากต้องการปลายสองสีต่างกันให้ใช้ `STATIC` หรือ `BOUNCE`. การแก้ `shaderAnimationMode` จากไฟล์ JSON โดยตรงยังต้อง restart; เปลี่ยนผ่าน ClickGUI ได้ทันที
+The default is a closed rainbow loop whose first and last stops are both red, so `FULL_TEXT_CYCLE` does not jump from the end colour back to the start. If you set your own colours and use `FULL_TEXT_CYCLE`, make the first and last stop colours the same for a seamless loop; if you want two different end colours, use `STATIC` or `BOUNCE`. Changing `shaderAnimationMode` directly in the JSON file still requires a restart; changing it through the ClickGUI takes effect immediately.
 
-เฉพาะ max-level enchantments ใช้ custom GUI render pipeline และ shader โดยส่ง progress ผ่าน vertex color แล้ว sample color-stop LUT ใน fragment shader จึงไล่สีต่อเนื่องภายใน glyph และข้ามรอยต่อระหว่างตัวอักษรได้. มี pipeline/LUT cache แยกตามโปรไฟล์ที่ใช้จริง (สูงสุด 33 palette slots รวม default) เพื่อให้โปรไฟล์ไม่ปะปนสี. ตำแหน่ง X ใช้พิกัด glyph ก่อน matrix transform เทียบกับช่วง layout `[x, activeRight]` ซึ่งมีตำแหน่งต้น glyph อยู่แล้วเพียงครั้งเดียว; ไม่ใช้ `GlyphRenderState.bounds()` เพราะ Minecraft 26.2 คืน `null` สำหรับ glyph. ส่วน enchantment ระดับ good ยังคงใช้สีเดี่ยวตาม `goodEnchantmentColor`. Minecraft 26.2 มี render backend Vulkan ให้เลือก; implementation นี้ใช้ Blaze3D `RenderPipeline` แทน raw OpenGL แต่ยังควรทดสอบกับ GPU drivers และม็อดที่ปรับ GUI rendering
+Only max-level enchantments use the custom GUI render pipeline and shader: progress is passed through the vertex colour and a colour-stop LUT is sampled in the fragment shader, so the gradient flows continuously within glyphs and across character boundaries. Pipelines/LUTs are cached per profile actually in use (up to 33 palette slots including the default) so profiles never mix colours. The X position uses glyph coordinates before the matrix transform, relative to the layout range `[x, activeRight]`, which already contains the glyph start position exactly once; `GlyphRenderState.bounds()` is not used because Minecraft 26.2 returns `null` for glyphs. Good-level enchantments still use the single `goodEnchantmentColor`. Minecraft 26.2 offers a Vulkan render backend; this implementation uses Blaze3D `RenderPipeline` instead of raw OpenGL, but it should still be tested with different GPU drivers and mods that change GUI rendering.
 
-`animationPeriodMs` คือเวลาครบรอบพื้นฐานของ animation ยิ่งน้อยยิ่งเร็ว; `animationSpeed` คูณอัตรานี้โดยไม่ต้องเปลี่ยน period. gradient/LUT ถูก cache แยกตาม palette slot ที่มีขอบเขต 33 ช่อง; `DynamicUniformStorage` ใช้ ring buffer ซึ่ง reset ทุกเฟรมและเก็บ buffer เก่าจากการ resize ไว้ชั่วคราวก่อนปิดใน `endFrame`; เพิ่ม callback ปิด storage ตอน client shutdown แล้ว จึงไม่พบเส้นทางสะสม GPU buffer ไม่สิ้นสุดจาก animation ต่อเนื่อง. ยังมี transient allocation ต่อ glyph ใน vertex wrapper และงานสร้าง text ตาม tooltip ซึ่งอาจสร้าง GC pressure เมื่อ workload ใหญ่มาก แต่ไม่ใช่ retained leak แบบโตไปเรื่อย ๆ. หากทดสอบบนเซิร์ฟเวอร์อื่นให้ตั้ง `onlyOnHypixel` เป็น `false` และต้องมี custom data ของไอเท็มในรูปแบบ Hypixel SkyBlock
+`animationPeriodMs` is the base cycle time of the animation; lower is faster. `animationSpeed` multiplies this rate without changing the period. Gradients/LUTs are cached per palette slot, bounded at 33 slots; `DynamicUniformStorage` uses a ring buffer that resets every frame and keeps old buffers from resizes temporarily before closing them in `endFrame`; a callback closes the storage on client shutdown, so there is no path for unbounded GPU buffer growth from continuous animation. There is still a transient per-glyph allocation in the vertex wrapper and per-tooltip text building, which can create GC pressure with very large workloads, but it is not a retained, ever-growing leak. To test on other servers, set `onlyOnHypixel` to `false`; items must carry Hypixel SkyBlock-style custom data.
 
-หากติดตั้ง Aaron's Mod พร้อมกัน ให้ปิดฟีเจอร์ Rainbow Max Enchants ของ Aaron's Mod เพื่อไม่ให้ tooltip ถูกแต่งสีซ้ำสองครั้ง
+If Aaron's Mod is installed at the same time, disable its Rainbow Max Enchants feature so tooltips are not coloured twice.
 
-## ขอบเขตข้อมูลและที่มา
+## Data scope and attribution
 
-ระบบนี้คงพฤติกรรมเฉพาะส่วน SkyBlock enchantment ของ Aaron's Mod รุ่นที่ตรวจสอบ โดยเขียน implementation ใหม่ใน namespace `net.lysinas` และ bundle snapshot ของ threshold ที่ใช้กับ enchantment ไว้ใน `src/main/resources/lysinas/enchantments.json` ไม่ได้ bundle คลาสหรือ dependency อื่นของ Aaron's Mod
+This mod keeps only the SkyBlock enchantment behaviour of the checked version of Aaron's Mod, reimplemented in the `net.lysinas` namespace, and bundles a snapshot of the enchantment thresholds in `src/main/resources/lysinas/enchantments.json`. No classes or other dependencies of Aaron's Mod are bundled.
 
-Birdflop ใช้เป็น reference สำหรับแนวคิดการกำหนด color stops และ animation เท่านั้น ไม่ได้คัดลอก source code ของ Birdflop
+Birdflop is used only as a reference for the idea of colour stops and animation; no Birdflop source code was copied.
