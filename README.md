@@ -98,6 +98,6 @@ If Aaron's Mod is installed at the same time, disable its Rainbow Max Enchants f
 
 ## Data scope and attribution
 
-This mod keeps only the SkyBlock enchantment behaviour of the checked version of Aaron's Mod, reimplemented in the `net.lysinas` namespace, and bundles a snapshot of the enchantment thresholds in `src/main/resources/lysinas/enchantments.json`. No classes or other dependencies of Aaron's Mod are bundled.
+This mod keeps only the SkyBlock enchantment behaviour of the checked version of Aaron's Mod, reimplemented in the `dev.ikmcw.lysinas` namespace, and bundles a snapshot of the enchantment thresholds in `src/main/resources/lysinas/enchantments.json`. No classes or other dependencies of Aaron's Mod are bundled.
 
 Birdflop is used only as a reference for the idea of colour stops and animation; no Birdflop source code was copied.

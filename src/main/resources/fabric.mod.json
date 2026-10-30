@@ -14,10 +14,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.lysinas.Lysinas"
+      "dev.ikmcw.lysinas.Main"
     ],
     "modmenu": [
-      "net.lysinas.LysinasModMenu"
+      "dev.ikmcw.lysinas.ModMenu"
     ]
   },
   "mixins": [
